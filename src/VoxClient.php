@@ -61,6 +61,15 @@ class VoxClient
     }
 
     /**
+     * Setting endpoint url
+     * @param string $endpoint
+     */
+    public function endpoint(string $endpoint)
+    {
+        $this->endpoint = $endpoint;
+    }
+
+    /**
      * Setting http headers
      * @param array $headers
      */
