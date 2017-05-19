@@ -1,6 +1,8 @@
 <?php
 
 namespace Voximplant;
+
+use Curl\Curl;
 use Voximplant\batch\BatchContainer;
 use Voximplant\exception\VoxClientException;
 
