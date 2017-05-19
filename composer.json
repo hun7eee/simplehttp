@@ -4,12 +4,12 @@
   "description": "Simple HTTP client for API",
   "license": "MIT",
   "require": {
-    "php": ">=5.6.0",
+    "php": ">=7.0.0",
     "php-curl-class/php-curl-class": "^7.3"
   },
   "autoload": {
     "psr-4": {
-      "App\\": "src/"
+      "Voximplant\\": "src/"
     }
   }
 }
