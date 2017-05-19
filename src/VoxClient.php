@@ -54,7 +54,7 @@ class VoxClient
     public function batch(BatchContainer $container) : array
     {
         $this->curl->setHeader('Content-Type', 'application/json; charset=utf-8');
-        $this->curl->post(self::API_ENDPOINT . 'Batch?', $container->build());
+        $this->curl->post($this->endpoint . 'Batch?', $container->build());
         return $this->response();
     }
 
