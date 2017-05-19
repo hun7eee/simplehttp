@@ -61,6 +61,15 @@ class VoxClient
     }
 
     /**
+     * Setting http headers
+     * @param array $headers
+     */
+    public function headers(array $headers)
+    {
+        $this->curl->setOpt(CURLOPT_HTTPHEADER, $headers);
+    }
+
+    /**
      * Handling of response
      * @return array
      * @throws VoxClientException
