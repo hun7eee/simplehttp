@@ -15,14 +15,13 @@ class BatchCommand
     public $count;
     public $offset;
 
-    public $account_id;
-    public $session_id;
-
     public function __construct(string $cmd, array $params)
     {
         $this->cmd = $cmd;
-        $this->account_id = $account_id;
-        $this->session_id = $session_id;
+
+        foreach ($params as $param => $value) {
+            $this->$param = $value;
+        }
     }
 
     public function offset(int $offset) : BatchCommand
@@ -35,10 +34,5 @@ class BatchCommand
     {
         $this->count = $count;
         return $this;
-    }
-
-    public function __call($name, $args)
-    {
-        $this->$name = $args[0];
     }
 }
