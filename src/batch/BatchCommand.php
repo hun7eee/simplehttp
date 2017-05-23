@@ -18,7 +18,7 @@ class BatchCommand
     public $account_id;
     public $session_id;
 
-    public function __construct(string $cmd, int $account_id, int $session_id)
+    public function __construct(string $cmd, array $params)
     {
         $this->cmd = $cmd;
         $this->account_id = $account_id;
