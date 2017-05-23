@@ -36,4 +36,9 @@ class BatchCommand
         $this->count = $count;
         return $this;
     }
+
+    public function __call($name, $args)
+    {
+        $this->$name = $args[0];
+    }
 }
