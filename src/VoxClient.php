@@ -88,6 +88,14 @@ class VoxClient
         if ($this->curl->error) {
             throw new VoxClientException($this->curl->errorMessage);
         }
+        if (!$this->curl->errorCode) {
+            $info = $this->curl->getInfo();
+            if ($info['http_code'] !== 200) {
+                throw new VoxClientException('API error!');
+            }
+        } else {
+            throw new VoxClientException($this->curl->error);
+        }
         return (array)$this->curl->response;
     }
 
