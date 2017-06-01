@@ -83,7 +83,7 @@ class VoxClient
      * @return array
      * @throws VoxClientException
      */
-    private function response() : array
+    public function response() : array
     {
         if ($this->curl->error) {
             throw new VoxClientException($this->curl->errorMessage);
