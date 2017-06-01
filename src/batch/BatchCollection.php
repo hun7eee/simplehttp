@@ -2,6 +2,8 @@
 
 namespace Voximplant\batch;
 
+use Voximplant\exception\VoxClientException;
+
 /**
  * Collection of batch response
  * Class BatchCollection
@@ -21,13 +23,14 @@ class BatchCollection
      * Gets response element of batch command by index
      * @param int $index
      * @return mixed
+     * @throws VoxClientException
      */
     public function get(int $index)
     {
         if (isset($this->data[$index]->result)) {
             return $this->data[$index]->result;
         }
-        return $this->data[$index]->error;
+        throw new VoxClientException($this->data[$index]->error->msg, $this->data[$index]->error->code);
     }
 
     /**
