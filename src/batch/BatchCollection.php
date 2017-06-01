@@ -20,9 +20,9 @@ class BatchCollection
     /**
      * Gets response element of batch command by index
      * @param int $index
-     * @return array
+     * @return mixed
      */
-    public function get(int $index) : array
+    public function get(int $index)
     {
         if (isset($this->data[$index]->result)) {
             return $this->data[$index]->result;
