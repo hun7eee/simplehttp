@@ -17,22 +17,25 @@ class VoxClient
 {
     protected $curl;
     protected $endpoint;
+    protected $auth_params;
 
-    public function __construct(string $endpoint)
+    public function __construct(string $endpoint, array $auth_params)
     {
         $this->curl = new Curl();
         $this->endpoint = $endpoint;
+        $this->auth_params = $auth_params;
     }
 
     /**
      * GET request
      * @param string $method
      * @param array $params
+     * @param bool $auth
      * @return array
      */
-    public function get(string $method, array $params) : array
+    public function get(string $method, array $params = [], bool $auth = true) : array
     {
-        $this->curl->get($this->endpoint . $method, $params);
+        $this->curl->get($this->endpoint . $method, $auth ? $params + $this->auth_params : $params);
         return $this->response();
     }
 
@@ -40,11 +43,12 @@ class VoxClient
      * POST request
      * @param string $method
      * @param array $params
+     * @param bool $auth
      * @return array
      */
-    public function post(string $method, array $params) : array
+    public function post(string $method, array $params = [], bool $auth = true) : array
     {
-        $this->curl->post($this->endpoint . $method, $params);
+        $this->curl->post($this->endpoint . $method, $auth ? $params + $this->auth_params : $params);
         return $this->response();
     }
 
@@ -76,6 +80,11 @@ class VoxClient
     public function headers(array $headers)
     {
         $this->curl->setOpt(CURLOPT_HTTPHEADER, $headers);
+    }
+
+    public function getAuthParams()
+    {
+        return $this->auth_params;
     }
 
     /**
