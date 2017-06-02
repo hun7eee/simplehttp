@@ -82,6 +82,10 @@ class VoxClient
         $this->curl->setOpt(CURLOPT_HTTPHEADER, $headers);
     }
 
+    /**
+     * Getting of auth parameters
+     * @return array
+     */
     public function getAuthParams()
     {
         return $this->auth_params;
