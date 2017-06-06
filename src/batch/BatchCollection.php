@@ -42,4 +42,15 @@ class BatchCollection
     {
         return isset($this->data[$index]->total_count) ? $this->data[$index]->total_count : 0;
     }
+
+
+    /**
+     * Gets count of batch command response by index
+     * @param int $index
+     * @return int
+     */
+    public function countOf(int $index) : int
+    {
+        return isset($this->data[$index]->count) ? $this->data[$index]->count : 0;
+    }
 }
