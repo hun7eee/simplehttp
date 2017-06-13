@@ -43,7 +43,7 @@ class VoxClientProxy
      */
     public function post(string $method, array $params = []) : array
     {
-        $this->client->get($method, $params);
+        $this->client->post($method, $params);
         return $this->handleResponse();
     }
 
