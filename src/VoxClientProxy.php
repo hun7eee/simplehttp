@@ -29,7 +29,7 @@ class VoxClientProxy
      * @param array $params
      * @return array
      */
-    public function get(string $method, array $params) : array
+    public function get(string $method, array $params = []) : array
     {
         $this->client->get($method, $params);
         return $this->handleResponse();
@@ -41,7 +41,7 @@ class VoxClientProxy
      * @param array $params
      * @return array
      */
-    public function post(string $method, array $params) : array
+    public function post(string $method, array $params = []) : array
     {
         $this->client->get($method, $params);
         return $this->handleResponse();
