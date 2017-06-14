@@ -53,4 +53,15 @@ class BatchCollection
     {
         return isset($this->data[$index]->count) ? $this->data[$index]->count : 0;
     }
+
+    /**
+     * Generator
+     * @return \Generator
+     */
+    public function each()
+    {
+        foreach ($this->data as $data) {
+            yield $data;
+        }
+    }
 }
