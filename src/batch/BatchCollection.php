@@ -64,4 +64,13 @@ class BatchCollection
             yield $data;
         }
     }
+
+    /**
+     * Return all of data
+     * @return array
+     */
+    public function all()
+    {
+        return $this->data;
+    }
 }
