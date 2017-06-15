@@ -19,7 +19,7 @@ class VoxClient
     public $endpoint;
     protected $auth_params;
 
-    public function __construct(string $endpoint, array $auth_params)
+    public function __construct(string $endpoint, array $auth_params = [])
     {
         $this->curl = new Curl();
         $this->endpoint = $endpoint;
