@@ -16,7 +16,7 @@ use Voximplant\exception\VoxClientException;
 class VoxClient
 {
     protected $curl;
-    protected $endpoint;
+    public $endpoint;
     protected $auth_params;
 
     public function __construct(string $endpoint, array $auth_params)
