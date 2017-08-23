@@ -99,13 +99,13 @@ class VoxClient
     public function response() : array
     {
         if ($this->curl->error) {
-            throw new VoxClientException($this->curl->errorMessage, $this->curl->errorCode);
+            throw new VoxClientException('API error', $this->curl->errorCode);
         }
 
         if (!$this->curl->errorCode) {
             $info = $this->curl->getInfo();
             if ($info['http_code'] !== 200) {
-                throw new VoxClientException('API error!', $info['http_code']);
+                throw new VoxClientException('API error', $info['http_code']);
             }
         } else {
             throw new VoxClientException($this->curl->error, $this->curl->errorCode);
